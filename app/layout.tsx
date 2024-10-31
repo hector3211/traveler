@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Nav from "./components/Navbar";
+import Nav from "./components/navbar";
 import { AppStoreProvider } from "./providers/store";
 import QueryClientPro from "./providers/tanstack";
 import { Toaster } from "./components/ui/sonner";

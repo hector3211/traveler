@@ -35,33 +35,41 @@ export default function Nav() {
     return (
       <nav className="w-full container mx-auto flex items-center justify-between p-4">
         <h3 className="text-3xl font-bold">Travel</h3>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              <MenuIcon />
+        <span className="flex items-center space-x-1">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">
+                <MenuIcon />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuLabel>Navigate</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <Link href={"/"}>
+                  <HomeIcon />
+                  Home
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"/trips"}>
+                  <PlaneIcon />
+                  Trips
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <ContactIcon />
+                Contact
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Link href={"/cart"}>
+            <Button size={"icon"} variant={"ghost"}>
+              <ShoppingCart className="size-8" />
+              {count}
             </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>Navigate</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <Link href={"/"}>
-                <HomeIcon />
-                Home
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href={"/trips"}>
-                <PlaneIcon />
-                Trips
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <ContactIcon />
-              Contact
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </Link>
+        </span>
       </nav>
     );
   }
@@ -89,10 +97,12 @@ export default function Nav() {
           <IdCard />
           About
         </Button>
-        <Button size={"icon"} variant={"ghost"}>
-          <ShoppingCart className="size-8" />
-          {count}
-        </Button>
+        <Link href={"/cart"}>
+          <Button size={"icon"} variant={"ghost"}>
+            <ShoppingCart className="size-8" />
+            {count}
+          </Button>
+        </Link>
         <span>
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />

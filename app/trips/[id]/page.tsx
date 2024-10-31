@@ -1,4 +1,4 @@
-import Footer from "@/app/components/Footer";
+import Footer from "@/app/components/footer";
 
 export default async function Page({
   params,

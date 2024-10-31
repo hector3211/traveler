@@ -24,8 +24,8 @@ export default function TripSearch() {
   return (
     <div className="w-full">
       <div className="relative py-8 px-4 text-center lg:py-16 lg:px-12">
-        <a
-          href="/trips"
+        <Link
+          href="#featured-trips"
           className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 "
           role="alert"
         >
@@ -47,7 +47,7 @@ export default function TripSearch() {
               clipRule="evenodd"
             ></path>
           </svg>
-        </a>
+        </Link>
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl ">
           Where to? 🏝️
         </h1>
@@ -99,7 +99,7 @@ function TripModal() {
       return data;
     },
     onError: () => {
-      return toast("Oops...", {
+      return toast.error("Oops...", {
         description: "Something went wrong, try again later",
       });
     },
@@ -168,7 +168,7 @@ function TripModal() {
                     <CardTitle>{trip.location}</CardTitle>
                     <CardDescription>
                       {trip.highlights.map((highlight, idx) => (
-                        <p key={idx}>{highlight}</p>
+                        <span key={idx}>{highlight}</span>
                       ))}
                     </CardDescription>
                   </CardHeader>
