@@ -31,7 +31,7 @@ const trips = [
   },
   {
     id: "2",
-    destination: "Paris, France",
+    location: "Paris, France",
     description: "Explore the City of Light and its iconic landmarks.",
     duration: "5 days",
     days: 5,
@@ -46,7 +46,7 @@ const trips = [
   },
   {
     id: "3",
-    destination: "Machu Picchu, Peru",
+    location: "Machu Picchu, Peru",
     description: "Discover the ancient Incan citadel in the Andes Mountains.",
     duration: "8 days",
     days: 8,
@@ -61,7 +61,7 @@ const trips = [
   },
   {
     id: "4",
-    destination: "Tokyo, Japan",
+    location: "Tokyo, Japan",
     description: "Immerse yourself in the vibrant culture of Japan's capital.",
     duration: "6 days",
     days: 6,
@@ -83,7 +83,9 @@ export default function FeaturedTrips() {
       ...trip,
     });
 
-    return toast.success("Successfully added to cart");
+    return toast.success(
+      `Successfully added ${trip.location.split(",")[1]} to cart`,
+    );
   }
   return (
     <div id="featured-trips" className="container mx-auto py-12">

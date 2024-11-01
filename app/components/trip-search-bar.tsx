@@ -48,7 +48,7 @@ export default function TripSearch() {
             ></path>
           </svg>
         </Link>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl ">
+        <h1 className="mb-4 text-6xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl ">
           Where to? 🏝️
         </h1>
         <div className="w-full md:w-[60%] mx-auto flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
@@ -131,11 +131,13 @@ function TripModal() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-[650px] h-[400px] bottom-36">
+      <DialogContent
+        className={`sm:max-w-[650px]  h-[200px] ${data?.length && "h-[350px]"} bottom-36`}
+      >
         <DialogHeader>
           <DialogTitle className="text-5xl">Where to? 🏝️</DialogTitle>
-          <div className="container py-2">
-            <div className="items-center mx-auto space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
+          <div className="container pt-2">
+            <div className="items-center mx-auto max-w-screen-sm">
               <div className="relative w-full">
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <SearchIcon />
@@ -156,7 +158,7 @@ function TripModal() {
           </div>
         </DialogHeader>
         {data ? (
-          <ScrollArea className="h-hull p-2">
+          <ScrollArea className="h-full">
             {data.map((trip) => (
               <Link
                 onClick={closeSeachModal}
