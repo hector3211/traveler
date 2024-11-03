@@ -4,6 +4,7 @@ export type Trip = {
   days: number;
   price: string;
   highlights: string[];
+  imageURL: string;
 };
 
 export const popularTrips: Trip[] = [
@@ -18,6 +19,7 @@ export const popularTrips: Trip[] = [
       "Seine River Cruise",
       "Notre-Dame Cathedral",
     ],
+    imageURL: "https://example.com/images/paris.jpg",
   },
   {
     id: "2",
@@ -30,6 +32,7 @@ export const popularTrips: Trip[] = [
       "Seminyak Beach",
       "Monkey Forest",
     ],
+    imageURL: "https://example.com/images/bali.jpg",
   },
   {
     id: "3",
@@ -42,6 +45,7 @@ export const popularTrips: Trip[] = [
       "Meiji Shrine",
       "Tsukiji Fish Market",
     ],
+    imageURL: "https://example.com/images/tokyo.jpg",
   },
   {
     id: "4",
@@ -49,6 +53,7 @@ export const popularTrips: Trip[] = [
     days: 4,
     price: "$1,100",
     highlights: ["Colosseum", "Vatican Museums", "Trevi Fountain", "Pantheon"],
+    imageURL: "https://example.com/images/rome.jpg",
   },
   {
     id: "5",
@@ -61,6 +66,7 @@ export const popularTrips: Trip[] = [
       "Harbour Bridge",
       "Royal Botanic Garden",
     ],
+    imageURL: "https://example.com/images/sydney.jpg",
   },
   {
     id: "6",
@@ -73,6 +79,7 @@ export const popularTrips: Trip[] = [
       "Cape Point",
       "Kirstenbosch Gardens",
     ],
+    imageURL: "https://example.com/images/cape-town.jpg",
   },
   {
     id: "7",
@@ -85,6 +92,7 @@ export const popularTrips: Trip[] = [
       "Statue of Liberty",
       "Broadway",
     ],
+    imageURL: "https://example.com/images/new-york.jpg",
   },
   {
     id: "8",
@@ -97,6 +105,7 @@ export const popularTrips: Trip[] = [
       "Chatuchak Market",
       "Floating Markets",
     ],
+    imageURL: "https://example.com/images/bangkok.jpg",
   },
   {
     id: "9",
@@ -109,6 +118,7 @@ export const popularTrips: Trip[] = [
       "Grand Bazaar",
       "Bosphorus Cruise",
     ],
+    imageURL: "https://example.com/images/istanbul.jpg",
   },
   {
     id: "10",
@@ -121,6 +131,7 @@ export const popularTrips: Trip[] = [
       "Palm Jumeirah",
       "Desert Safari",
     ],
+    imageURL: "https://example.com/images/dubai.jpg",
   },
   {
     id: "11",
@@ -128,6 +139,7 @@ export const popularTrips: Trip[] = [
     days: 5,
     price: "$1,400",
     highlights: ["Oia Sunset", "Fira", "Red Beach", "Ancient Thera"],
+    imageURL: "https://example.com/images/santorini.jpg",
   },
   {
     id: "12",
@@ -140,6 +152,7 @@ export const popularTrips: Trip[] = [
       "Khan El Khalili",
       "Nile Cruise",
     ],
+    imageURL: "https://example.com/images/cairo.jpg",
   },
   {
     id: "13",
@@ -152,6 +165,7 @@ export const popularTrips: Trip[] = [
       "Tower of London",
       "British Museum",
     ],
+    imageURL: "https://example.com/images/london.jpg",
   },
   {
     id: "14",
@@ -164,6 +178,7 @@ export const popularTrips: Trip[] = [
       "Gothic Quarter",
       "La Rambla",
     ],
+    imageURL: "https://example.com/images/barcelona.jpg",
   },
   {
     id: "15",
@@ -176,6 +191,7 @@ export const popularTrips: Trip[] = [
       "Northern Lights",
       "Thingvellir National Park",
     ],
+    imageURL: "https://example.com/images/reykjavik.jpg",
   },
   {
     id: "16",
@@ -188,6 +204,7 @@ export const popularTrips: Trip[] = [
       "Anne Frank House",
       "Van Gogh Museum",
     ],
+    imageURL: "https://example.com/images/amsterdam.jpg",
   },
   {
     id: "17",
@@ -200,6 +217,7 @@ export const popularTrips: Trip[] = [
       "Bahia Palace",
       "Atlas Mountains",
     ],
+    imageURL: "https://example.com/images/marrakech.jpg",
   },
   {
     id: "18",
@@ -207,6 +225,7 @@ export const popularTrips: Trip[] = [
     days: 4,
     price: "$1,100",
     highlights: ["Belém Tower", "Alfama", "Jerónimos Monastery", "LX Factory"],
+    imageURL: "https://example.com/images/lisbon.jpg",
   },
   {
     id: "19",
@@ -219,6 +238,7 @@ export const popularTrips: Trip[] = [
       "Arashiyama Bamboo Grove",
       "Gion District",
     ],
+    imageURL: "https://example.com/images/kyoto.jpg",
   },
   {
     id: "20",
@@ -231,5 +251,6 @@ export const popularTrips: Trip[] = [
       "Big Buddha",
       "Old Phuket Town",
     ],
+    imageURL: "https://example.com/images/phuket.jpg",
   },
 ];

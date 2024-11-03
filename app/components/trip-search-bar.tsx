@@ -1,7 +1,13 @@
 "use client";
 
 import { ScrollArea } from "./ui/scroll-area";
-import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import {
   Dialog,
   DialogContent,
@@ -174,6 +180,14 @@ function TripModal() {
                       ))}
                     </CardDescription>
                   </CardHeader>
+                  <CardContent>
+                    <img
+                      src={trip.imageURL}
+                      alt={`${trip.location} image`}
+                      width={50}
+                      height={50}
+                    />
+                  </CardContent>
                 </Card>
               </Link>
             ))}
