@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Button } from "./components/ui/button";
-import TripSearch from "./components/trip-search-bar";
-import FeaturedTrips from "./components/featured-trips";
-import NewsLetter from "./components/newsletter-form";
+import TripSearch from "./components/TripSearchBar";
+import FeaturedTrips from "./components/FeaturedTrips";
+import NewsLetter from "./components/NewsletterForm";
 
 export default function Home() {
   return (

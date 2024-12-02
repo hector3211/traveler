@@ -10,7 +10,7 @@ import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
 import { Star, TrendingUp, Clock } from "lucide-react";
 import Image from "next/image";
-import BookingButton from "../components/booking-button";
+import BookingButton from "@/app/components/BookingButton";
 
 // Mock data for trips
 const recentTrips = [

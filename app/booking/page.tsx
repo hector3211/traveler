@@ -1,4 +1,4 @@
-import BookTripForm from "../trips/tripcomponents/book-trip-form";
+import BookTripForm from "@/app/components/BookTripForm";
 
 export default async function Page({
   params,

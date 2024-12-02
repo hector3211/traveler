@@ -1,4 +1,4 @@
-import TripDetailsPage from "../tripcomponents/trip-details-page";
+import TripDetailsPage from "@/app/components/TripDetails";
 
 export default async function Page({
   params,
