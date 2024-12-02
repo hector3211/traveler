@@ -34,7 +34,7 @@ export default function Nav() {
   if (isMobile) {
     return (
       <nav className="w-full container mx-auto flex items-center justify-between p-4">
-        <h3 className="text-3xl font-bold">Travel</h3>
+        <h3 className="text-3xl font-extrabold">Travel</h3>
         <span className="flex items-center space-x-1">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -75,7 +75,7 @@ export default function Nav() {
   }
   return (
     <nav className="w-full container mx-auto flex items-end justify-between p-4">
-      <h3 className="text-3xl font-bold">Travel</h3>
+      <h3 className="text-4xl font-extrabold">Travel</h3>
       <div className="flex items-center space-x-2">
         <Link href={"/"}>
           <Button variant={"link"}>
@@ -103,12 +103,6 @@ export default function Nav() {
             {count}
           </Button>
         </Link>
-        <span>
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-        </span>
       </div>
     </nav>
   );

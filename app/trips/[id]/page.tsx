@@ -10,8 +10,7 @@ export default async function Page({
   return (
     <div className="relative">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1>Trips page! got trip {id}</h1>
-        <TripDetailsPage />
+        <TripDetailsPage tripdID={id} />
       </main>
       <Footer />
     </div>

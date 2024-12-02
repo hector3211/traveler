@@ -1,6 +1,5 @@
 import React from "react";
 import { Calendar, MapPin, Clock, Users, DollarSign, Star } from "lucide-react";
-import { Button } from "@/app/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,29 +8,36 @@ import {
   CardHeader,
   CardTitle,
 } from "@/app/components/ui/card";
-import { Input } from "@/app/components/ui/input";
-import { Label } from "@/app/components/ui/label";
-import { Textarea } from "@/app/components/ui/textarea";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/app/components/ui/avatar";
+import { popularTrips } from "@/lib/models";
+import BookTripForm from "./book-trip-form";
+import Image from "next/image";
 
-export default function TripDetailsPage() {
+interface Props {
+  tripdID: string;
+}
+
+export default function TripDetailsPage({ tripdID }: Props) {
+  const tripData = popularTrips.filter((trip) => trip.id === tripdID)[0];
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
       <div className="relative h-[50vh] mb-8 rounded-xl overflow-hidden">
-        <img
-          src="/placeholder.svg?height=400&width=800"
-          alt="Trip destination"
+        <Image
+          src={`${tripData.imageURL}`}
+          alt={`${tripData.location} image`}
+          width={800}
+          height={400}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end">
           <div className="p-8">
             <h1 className="text-4xl font-bold text-white mb-2">
-              Exotic Bali Adventure
+              {tripData.location}
             </h1>
             <p className="text-xl text-white">
               Discover the beauty of Indonesia
@@ -50,7 +56,9 @@ export default function TripDetailsPage() {
               <CardTitle>Duration</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>7 days, 6 nights</p>
+              <p>
+                {tripData.days} days, {tripData.days - 1} nights
+              </p>
             </CardContent>
           </Card>
           <Card>
@@ -59,7 +67,7 @@ export default function TripDetailsPage() {
               <CardTitle>Destination</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>Bali, Indonesia</p>
+              <p>{tripData.location}</p>
             </CardContent>
           </Card>
           <Card>
@@ -127,67 +135,7 @@ export default function TripDetailsPage() {
       </section>
 
       {/* Booking Form */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-6">Book This Trip</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle>Reservation Form</CardTitle>
-            <CardDescription>
-              Fill out the form below to book your Bali adventure
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="first-name">First Name</Label>
-                  <Input id="first-name" placeholder="John" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="last-name">Last Name</Label>
-                  <Input id="last-name" placeholder="Doe" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="john.doe@example.com"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number</Label>
-                <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="travel-date">Preferred Travel Date</Label>
-                <Input id="travel-date" type="date" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="group-size">Number of Travelers</Label>
-                <Input
-                  id="group-size"
-                  type="number"
-                  min="1"
-                  max="12"
-                  placeholder="2"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="special-requests">Special Requests</Label>
-                <Textarea
-                  id="special-requests"
-                  placeholder="Any dietary requirements or special requests?"
-                />
-              </div>
-            </form>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full">Book Now</Button>
-          </CardFooter>
-        </Card>
-      </section>
+      <BookTripForm tripID={tripdID} />
 
       {/* Testimonials Section */}
       <section>

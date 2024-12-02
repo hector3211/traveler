@@ -8,10 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/app/components/ui/card";
-import { Button } from "./ui/button";
-import { useAppStore } from "../providers/store";
-import { Trip } from "@/lib/models";
-import { toast } from "sonner";
+import BookingButton from "./booking-button";
+import Image from "next/image";
 
 const trips = [
   {
@@ -21,7 +19,7 @@ const trips = [
     duration: "7 days",
     days: 7,
     price: "1299",
-    image: "/bali.jpg?height=400&width=600",
+    imageURL: "/bali.jpg",
     highlights: [
       "Eiffel Tower",
       "Louvre Museum",
@@ -36,7 +34,7 @@ const trips = [
     duration: "5 days",
     days: 5,
     price: "1499",
-    image: "/parris-two.jpg?height=400&width=600",
+    imageURL: "/parris-two.jpg",
     highlights: [
       "Eiffel Tower",
       "Louvre Museum",
@@ -46,12 +44,12 @@ const trips = [
   },
   {
     id: "3",
-    location: "Machu Picchu, Peru",
+    location: "Puerto Rico",
     description: "Discover the ancient Incan citadel in the Andes Mountains.",
     duration: "8 days",
     days: 8,
     price: "1799",
-    image: "/rico.jpg?height=400&width=600",
+    imageURL: "/rico.jpg",
     highlights: [
       "Eiffel Tower",
       "Louvre Museum",
@@ -66,7 +64,7 @@ const trips = [
     duration: "6 days",
     days: 6,
     price: "1599",
-    image: "/tokyo.jpg?height=400&width=600",
+    imageURL: "/tokyo.jpg",
     highlights: [
       "Shibuya Crossing",
       "Tokyo Skytree",
@@ -76,26 +74,17 @@ const trips = [
   },
 ];
 export default function FeaturedTrips() {
-  const addToCart = useAppStore((state) => state.addItemToCart);
-
-  function handleCart(trip: Trip) {
-    addToCart({
-      ...trip,
-    });
-
-    return toast.success(
-      `Successfully added ${trip.location.split(",")[1]} to cart`,
-    );
-  }
   return (
     <div id="featured-trips" className="container mx-auto py-12">
       <h2 className="text-3xl font-bold text-center mb-8">Featured Trips</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {trips.map((trip) => (
           <Card key={trip.id} className="overflow-hidden">
-            <img
-              src={trip.image}
+            <Image
+              src={trip.imageURL}
               alt={trip.location}
+              width={400}
+              height={400}
               className="w-full h-52 object-cover"
             />
             <CardHeader>
@@ -107,19 +96,7 @@ export default function FeaturedTrips() {
             </CardContent>
             <CardFooter className="flex justify-between items-center">
               <span className="text-lg font-bold">${trip.price}</span>
-              <Button
-                onClick={() =>
-                  handleCart({
-                    id: trip.id,
-                    location: trip.location!,
-                    price: trip.price,
-                    days: trip.days,
-                    highlights: trip.highlights,
-                  })
-                }
-              >
-                Book Now
-              </Button>
+              <BookingButton trip={{ ...trip }} />
             </CardFooter>
           </Card>
         ))}

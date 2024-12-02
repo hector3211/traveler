@@ -1,4 +1,4 @@
-import ShoppingCart from "../components/shopping-cart";
+import ShoppingCart from "@/app/components/shopping-cart";
 
 export default function Page() {
   return <ShoppingCart />;

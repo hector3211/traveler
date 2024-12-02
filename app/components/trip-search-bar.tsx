@@ -182,10 +182,11 @@ function TripModal() {
                   </CardHeader>
                   <CardContent>
                     <img
-                      src={trip.imageURL}
+                      src={"https://picsum.photos/id/10/300"}
                       alt={`${trip.location} image`}
-                      width={50}
-                      height={50}
+                      width={70}
+                      height={70}
+                      className="rounded-md"
                     />
                   </CardContent>
                 </Card>
