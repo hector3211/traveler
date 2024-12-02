@@ -14,7 +14,7 @@ import {
   AvatarImage,
 } from "@/app/components/ui/avatar";
 import { popularTrips } from "@/lib/models";
-import BookTripForm from "./book-trip-form";
+import BookTripForm from "./BookTripForm";
 import Image from "next/image";
 
 interface Props {

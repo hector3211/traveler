@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/app/components/ui/card";
-import BookingButton from "./booking-button";
+import BookingButton from "./BookingButton";
 import Image from "next/image";
 
 const trips = [
