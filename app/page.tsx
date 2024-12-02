@@ -1,21 +1,17 @@
 import Image from "next/image";
 import { Button } from "./components/ui/button";
 import TripSearch from "./components/trip-search-bar";
-import Footer from "./components/footer";
 import FeaturedTrips from "./components/featured-trips";
 import NewsLetter from "./components/newsletter-form";
 
 export default function Home() {
   return (
-    <div className="relative">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Hero />
-        <Cta />
-        <FeaturedTrips />
-        <Content />
-        <NewsLetter />
-      </main>
-      <Footer />
+    <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+      <Hero />
+      <Cta />
+      <FeaturedTrips />
+      <Content />
+      <NewsLetter />
     </div>
   );
 }

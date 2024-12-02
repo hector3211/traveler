@@ -5,6 +5,7 @@ import Nav from "./components/navbar";
 import { AppStoreProvider } from "./providers/store";
 import QueryClientPro from "./providers/tanstack";
 import { Toaster } from "./components/ui/sonner";
+import Footer from "./components/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,8 +36,9 @@ export default function RootLayout({
         <QueryClientPro>
           <AppStoreProvider>
             <Nav />
-            {children}
+            <main className="relative max-w-7xl mx-auto">{children}</main>
             <Toaster />
+            <Footer />
           </AppStoreProvider>
         </QueryClientPro>
       </body>

@@ -1,4 +1,3 @@
-import Footer from "@/app/components/footer";
 import {
   Card,
   CardContent,
@@ -105,134 +104,131 @@ const popularTrips = [
 
 export default function TripsPage() {
   return (
-    <main>
-      <div className="container mx-auto px-4 py-8">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">
-            Discover Your Next Adventure
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Explore our curated selection of trips and find your perfect getaway
-          </p>
-        </header>
+    <div className="container mx-auto px-4 py-8">
+      <header className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-4">
+          Discover Your Next Adventure
+        </h1>
+        <p className="text-xl text-muted-foreground">
+          Explore our curated selection of trips and find your perfect getaway
+        </p>
+      </header>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-6">Recent Trips</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentTrips.map((trip) => (
-              <Card key={trip.id} className="overflow-hidden">
-                <Image
-                  src={trip.imageURL}
-                  alt={`${trip.title} image`}
-                  width={350}
-                  height={350}
-                  className="w-full h-48 object-cover"
-                />
-                <CardHeader>
-                  <CardTitle>{trip.title}</CardTitle>
-                  <CardDescription>{trip.location}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4" />
-                    <span>{trip.days}</span>
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-6">Recent Trips</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recentTrips.map((trip) => (
+            <Card key={trip.id} className="overflow-hidden">
+              <Image
+                src={trip.imageURL}
+                alt={`${trip.title} image`}
+                width={350}
+                height={350}
+                className="w-full h-48 object-cover"
+              />
+              <CardHeader>
+                <CardTitle>{trip.title}</CardTitle>
+                <CardDescription>{trip.location}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                  <Clock className="w-4 h-4" />
+                  <span>{trip.days}</span>
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <span className="text-lg font-semibold">${trip.price}</span>
+                <BookingButton trip={trip} />
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-6">Featured Trip</h2>
+        <Card className="overflow-hidden">
+          <div className="md:flex">
+            <Image
+              width={900}
+              height={300}
+              placeholder="blur"
+              blurDataURL={featuredTrip.imageURL}
+              src={featuredTrip.imageURL}
+              alt={featuredTrip.title}
+              className="w-full md:w-1/2 h-64 md:h-auto object-cover"
+            />
+            <div className="p-6 md:w-1/2">
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <CardTitle className="text-2xl mb-2">
+                      {featuredTrip.title}
+                    </CardTitle>
+                    <CardDescription>{featuredTrip.location}</CardDescription>
                   </div>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <span className="text-lg font-semibold">${trip.price}</span>
-                  <BookingButton trip={trip} />
-                </CardFooter>
-              </Card>
-            ))}
+                  <Badge variant="secondary" className="text-lg">
+                    ${featuredTrip.price}
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">{featuredTrip.description}</p>
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                  <Clock className="size-4" />
+                  <span>{featuredTrip.days}</span>
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full">Book Featured Trip</Button>
+              </CardFooter>
+            </div>
           </div>
-        </section>
+        </Card>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-6">Featured Trip</h2>
-          <Card className="overflow-hidden">
-            <div className="md:flex">
+      <section>
+        <h2 className="text-2xl font-semibold mb-6">Most Popular Trips</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {popularTrips.map((trip) => (
+            <Card key={trip.id} className="overflow-hidden">
               <Image
                 width={900}
                 height={300}
                 placeholder="blur"
-                blurDataURL={featuredTrip.imageURL}
-                src={featuredTrip.imageURL}
-                alt={featuredTrip.title}
-                className="w-full md:w-1/2 h-64 md:h-auto object-cover"
+                blurDataURL={trip.imageURL}
+                src={trip.imageURL}
+                alt={trip.title}
+                className="w-full h-48 object-cover"
               />
-              <div className="p-6 md:w-1/2">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-2xl mb-2">
-                        {featuredTrip.title}
-                      </CardTitle>
-                      <CardDescription>{featuredTrip.location}</CardDescription>
-                    </div>
-                    <Badge variant="secondary" className="text-lg">
-                      ${featuredTrip.price}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-4">{featuredTrip.description}</p>
+              <CardHeader>
+                <CardTitle>{trip.title}</CardTitle>
+                <CardDescription>{trip.location}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex justify-between items-center mb-2">
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                     <Clock className="size-4" />
-                    <span>{featuredTrip.days}</span>
+                    <span>{trip.days} days</span>
                   </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full">Book Featured Trip</Button>
-                </CardFooter>
-              </div>
-            </div>
-          </Card>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-6">Most Popular Trips</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {popularTrips.map((trip) => (
-              <Card key={trip.id} className="overflow-hidden">
-                <Image
-                  width={900}
-                  height={300}
-                  placeholder="blur"
-                  blurDataURL={trip.imageURL}
-                  src={trip.imageURL}
-                  alt={trip.title}
-                  className="w-full h-48 object-cover"
-                />
-                <CardHeader>
-                  <CardTitle>{trip.title}</CardTitle>
-                  <CardDescription>{trip.location}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex justify-between items-center mb-2">
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <Clock className="size-4" />
-                      <span>{trip.days} days</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Star className="w-4 h-4 text-yellow-400 mr-1" />
-                      <span className="text-sm font-medium">{trip.rating}</span>
-                    </div>
+                  <div className="flex items-center">
+                    <Star className="w-4 h-4 text-yellow-400 mr-1" />
+                    <span className="text-sm font-medium">{trip.rating}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                    <TrendingUp className="w-4 h-4" />
-                    <span>Popular Choice</span>
-                  </div>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <span className="text-lg font-semibold">${trip.price}</span>
-                  <BookingButton trip={trip} />
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </section>
-      </div>
-      <Footer />
-    </main>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                  <TrendingUp className="w-4 h-4" />
+                  <span>Popular Choice</span>
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <span className="text-lg font-semibold">${trip.price}</span>
+                <BookingButton trip={trip} />
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

@@ -1,4 +1,3 @@
-import Footer from "@/app/components/footer";
 import TripDetailsPage from "../tripcomponents/trip-details-page";
 
 export default async function Page({
@@ -8,11 +7,8 @@ export default async function Page({
 }) {
   const id = (await params).id;
   return (
-    <div className="relative">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <TripDetailsPage tripdID={id} />
-      </main>
-      <Footer />
+    <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+      <TripDetailsPage tripdID={id} />
     </div>
   );
 }
